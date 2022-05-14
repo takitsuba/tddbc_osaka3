@@ -39,6 +39,13 @@ class VendingMachine:
     def add_amount(self, inserted):
         self.amount += inserted
 
+    def purchase(self, juice):
+        if self.stock_control.has_stock(juice) and self.has_enough_amount(juice):
+            self.stock_control.reduce_stock(juice)
+            price = self.stock_control.prices[juice]
+            self.proceeds += price
+            self.amount -= price
+
     def insert_or_refund(self):
         input_str = input("お金を入れてね、払い戻ししたい時はrefundと入力してね:")
         if input_str == "refund":
@@ -47,12 +54,8 @@ class VendingMachine:
             self.stock_control.print_juices()
         elif input_str == "buy":
             juice = "Coke"
-            if self.stock_control.has_stock(juice) and self.has_enough_amount(juice):
-                self.stock_control.reduce_stock(juice)
-                price = self.stock_control.prices[juice]
-                self.proceeds += price
-                self.amount -= price
-                print("buy: Coke")
+            self.purchase(juice)
+            print("buy: Coke")
         else:
             inserted = int(input_str)
             if self.is_valid(inserted):
