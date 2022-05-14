@@ -2,10 +2,11 @@ import unittest
 
 from main import StockControl, VendingMachine
 
+
 class TestStockControl(unittest.TestCase):
     def setUp(self) -> None:
         self.sc = StockControl()
-    
+
     def test_can_sell(self):
         self.assertEqual(self.sc.can_sell(120), True)
         self.assertEqual(self.sc.can_sell(0), False)
@@ -13,7 +14,7 @@ class TestStockControl(unittest.TestCase):
         # 本数が足りない時は販売できないことを確認する
         self.sc.stocks["Coke"] = 0
         self.assertEqual(self.sc.can_sell(120), False)
-        
+
 
 class TestVendingMachine(unittest.TestCase):
     def setUp(self) -> None:
@@ -30,5 +31,5 @@ class TestVendingMachine(unittest.TestCase):
         self.assertEqual(self.vm.is_valid(0), False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

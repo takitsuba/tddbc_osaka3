@@ -1,5 +1,6 @@
 valid_moneys = (10, 50, 100, 500, 1000)
 
+
 class StockControl:
     prices = {}
     stocks = {}
@@ -62,6 +63,7 @@ def main():
     vending_machine = VendingMachine()
     while True:
         vending_machine.insert_or_refund()
-    
+
+
 if __name__ == "__main__":
     main()
