@@ -46,7 +46,7 @@ class VendingMachine:
         elif input_str == "buy":
             if self.stock_control.can_sell(self.amount):
                 self.stock_control.take("Coke")
-                price = self.stock_control.juices["Coke"]["price"]
+                price = self.stock_control.prices["Coke"]
                 self.proceeds += price
                 self.amount -= price
                 print("buy: Coke")
