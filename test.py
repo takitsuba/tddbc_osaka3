@@ -12,6 +12,10 @@ class TestVendingMachine(unittest.TestCase):
         self.vm.refund()
         self.assertEqual(self.vm.amount, 0)
 
+    def test_is_valid(self):
+        self.assertEqual(self.vm.is_valid(10), True)
+        self.assertEqual(self.vm.is_valid(0), False)
+
 
 if __name__ == '__main__':
     unittest.main()
