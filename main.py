@@ -30,6 +30,9 @@ class VendingMachine:
     def is_valid(self, inserted):
         return inserted in valid_moneys
 
+    def add_amount(self, inserted):
+        self.amount += inserted
+
     def insert_or_refund(self):
         input_str = input("お金を入れてね、払い戻ししたい時はrefundと入力してね:")
         if input_str == "refund":
@@ -46,7 +49,7 @@ class VendingMachine:
         else:
             inserted = int(input_str)
             if self.is_valid(inserted):
-                self.amount += inserted
+                self.add_amount(inserted)
             else:
                 print(f"change: {inserted}")
         print(f"total: {self.amount}")
