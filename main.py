@@ -1,10 +1,9 @@
 valid_moneys = (10, 50, 100, 500, 1000)
 
-class Stock:
+class StockControl:
     juices = {}
 
     def __init__(self):
-        # (price, number)
         self.juices["Coke"] = {"price": 120, "number": 5}
 
     def print_juices(self):
@@ -21,7 +20,7 @@ class Stock:
 class VendingMachine:
     amount = 0
     proceeds = 0
-    stock = Stock()
+    stock = StockControl()
 
     def refund(self):
         print(f"change: {self.amount}")
