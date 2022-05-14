@@ -27,7 +27,6 @@ class VendingMachine:
     stock_control = StockControl()
 
     def refund(self):
-        print(f"change: {self.amount}")
         self.amount = 0
 
     def is_valid(self, inserted):
@@ -50,6 +49,7 @@ class VendingMachine:
         input_str = input("お金を入れてね、払い戻ししたい時はrefundと入力してね:")
         if input_str == "refund":
             self.refund()
+            print(f"change: {self.amount}")
         elif input_str == "stock":
             self.stock_control.print_juices()
         elif input_str == "buy":
