@@ -25,7 +25,7 @@ class StockControl:
 class VendingMachine:
     amount = 0
     proceeds = 0
-    stock = StockControl()
+    stock_control = StockControl()
 
     def refund(self):
         print(f"change: {self.amount}")
@@ -42,11 +42,11 @@ class VendingMachine:
         if input_str == "refund":
             self.refund()
         elif input_str == "stock":
-            self.stock.print_juices()
+            self.stock_control.print_juices()
         elif input_str == "buy":
-            if self.stock.can_sell(self.amount):
-                self.stock.take("Coke")
-                price = self.stock.juices["Coke"]["price"]
+            if self.stock_control.can_sell(self.amount):
+                self.stock_control.take("Coke")
+                price = self.stock_control.juices["Coke"]["price"]
                 self.proceeds += price
                 self.amount -= price
                 print("buy: Coke")
