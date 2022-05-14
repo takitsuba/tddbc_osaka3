@@ -17,7 +17,7 @@ class StockControl:
     def has_stock(self, juice):
         return self.stocks[juice] > 0
 
-    def take(self, name):
+    def reduce_stock(self, name):
         self.stocks[name] -= 1
 
 
@@ -48,7 +48,7 @@ class VendingMachine:
         elif input_str == "buy":
             juice = "Coke"
             if self.stock_control.has_stock(juice) and self.has_enough_amount(juice):
-                self.stock_control.take("Coke")
+                self.stock_control.reduce_stock("Coke")
                 price = self.stock_control.prices["Coke"]
                 self.proceeds += price
                 self.amount -= price
