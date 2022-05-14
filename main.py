@@ -19,13 +19,13 @@ class Stock:
 
 
 class VendingMachine:
-    total = 0
+    amount = 0
     proceeds = 0
     stock = Stock()
 
     def refund(self):
-        print(f"change: {self.total}")
-        self.total = 0
+        print(f"change: {self.amount}")
+        self.amount = 0
 
     def is_valid(self, inserted):
         return inserted in valid_moneys
@@ -37,19 +37,19 @@ class VendingMachine:
         elif input_str == "stock":
             self.stock.print_juices()
         elif input_str == "buy":
-            if self.stock.can_sell(self.total):
+            if self.stock.can_sell(self.amount):
                 self.stock.take("Coke")
                 price = self.stock.juices["Coke"]["price"]
                 self.proceeds += price
-                self.total -= price
+                self.amount -= price
                 print("buy: Coke")
         else:
             inserted = int(input_str)
             if self.is_valid(inserted):
-                self.total += inserted
+                self.amount += inserted
             else:
                 print(f"change: {inserted}")
-        print(f"total: {self.total}")
+        print(f"total: {self.amount}")
 
 
 def main():
