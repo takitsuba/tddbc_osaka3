@@ -14,13 +14,12 @@ class VendingMachine:
         input_str = input("お金を入れてね、払い戻ししたい時はrefundと入力してね:")
         if input_str == "refund":
             self.refund()
-            return
-
-        inserted = int(input_str)
-        if self.is_valid(inserted):
-            self.total += inserted
         else:
-            print(f"change: {inserted}")
+            inserted = int(input_str)
+            if self.is_valid(inserted):
+                self.total += inserted
+            else:
+                print(f"change: {inserted}")
         print(f"total: {self.total}")
 
 
