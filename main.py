@@ -4,12 +4,12 @@ class Stock:
     juices = {}
 
     def __init__(self):
-        # (price, hon)
-        self.juices["Coke"] = (120, 5)
+        # (price, number)
+        self.juices["Coke"] = {"price": 120, "number": 5}
 
     def print_juices(self):
-        for name, (price, stock) in self.juices.items():
-            print(f"{name}: {price}yen, {stock}hon")
+        for name, detail in self.juices.items():
+            print(f"{name}: {detail['price']}yen, {detail['number']}hon")
 
 class VendingMachine:
     total = 0
