@@ -11,14 +11,14 @@ class StockControl:
         self.stocks[coke] = 5
 
     def print_juices(self):
-        for name in self.prices.keys():
-            print(f"{name}: {self.prices[name]}yen, {self.stocks[name]}hon")
+        for juice in self.prices.keys():
+            print(f"{juice}: {self.prices[juice]}yen, {self.stocks[juice]}hon")
 
     def has_stock(self, juice):
         return self.stocks[juice] > 0
 
-    def reduce_stock(self, name):
-        self.stocks[name] -= 1
+    def reduce_stock(self, juice):
+        self.stocks[juice] -= 1
 
 
 class VendingMachine:
