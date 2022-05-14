@@ -1,7 +1,19 @@
 valid_moneys = (10, 50, 100, 500, 1000)
 
+class Stock:
+    juices = {}
+
+    def __init__(self):
+        # (price, hon)
+        self.juices["Coke"] = (120, 5)
+
+    def print_juices(self):
+        for name, (price, stock) in self.juices.items():
+            print(f"{name}: {price}yen, {stock}hon")
+
 class VendingMachine:
     total = 0
+    stock = Stock()
 
     def refund(self):
         print(f"change: {self.total}")
@@ -14,6 +26,8 @@ class VendingMachine:
         input_str = input("お金を入れてね、払い戻ししたい時はrefundと入力してね:")
         if input_str == "refund":
             self.refund()
+        elif input_str == "stock":
+            self.stock.print_juices()
         else:
             inserted = int(input_str)
             if self.is_valid(inserted):
