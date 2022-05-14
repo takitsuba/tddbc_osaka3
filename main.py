@@ -14,9 +14,13 @@ class Stock:
     def can_sell(self, amount):
         return self.juices["Coke"]["price"] <= amount and self.juices["Coke"]["number"] > 0
 
+    def take(self, name):
+        self.juices[name]["number"] -= 1
+
 
 class VendingMachine:
     total = 0
+    proceeds = 0
     stock = Stock()
 
     def refund(self):
@@ -32,6 +36,13 @@ class VendingMachine:
             self.refund()
         elif input_str == "stock":
             self.stock.print_juices()
+        elif input_str == "buy":
+            if self.stock.can_sell(self.total):
+                self.stock.take("Coke")
+                price = self.stock.juices["Coke"]["price"]
+                self.proceeds += price
+                self.total -= price
+                print("buy: Coke")
         else:
             inserted = int(input_str)
             if self.is_valid(inserted):
