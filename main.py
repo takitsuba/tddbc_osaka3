@@ -46,7 +46,7 @@ class VendingMachine:
             self.proceeds += price
             self.amount -= price
 
-    def insert_or_refund(self):
+    def operate(self):
         input_str = input("お金を入れてね、払い戻ししたい時はrefundと入力してね:")
         if input_str == "refund":
             self.refund()
@@ -68,7 +68,7 @@ class VendingMachine:
 def main():
     vending_machine = VendingMachine()
     while True:
-        vending_machine.insert_or_refund()
+        vending_machine.operate()
 
 
 if __name__ == "__main__":
