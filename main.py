@@ -48,8 +48,8 @@ class VendingMachine:
         elif input_str == "buy":
             juice = "Coke"
             if self.stock_control.has_stock(juice) and self.has_enough_amount(juice):
-                self.stock_control.reduce_stock("Coke")
-                price = self.stock_control.prices["Coke"]
+                self.stock_control.reduce_stock(juice)
+                price = self.stock_control.prices[juice]
                 self.proceeds += price
                 self.amount -= price
                 print("buy: Coke")
