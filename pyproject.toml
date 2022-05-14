@@ -6,6 +6,7 @@ authors = ["takizawa <kei.cataract@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pre-commit = "^2.19.0"
 
 [tool.poetry.dev-dependencies]
 
