@@ -11,6 +11,10 @@ class Stock:
         for name, detail in self.juices.items():
             print(f"{name}: {detail['price']}yen, {detail['number']}hon")
 
+    def can_sell(self, amount):
+        return self.juices["Coke"]["price"] <= amount and self.juices["Coke"]["number"] > 0
+
+
 class VendingMachine:
     total = 0
     stock = Stock()
