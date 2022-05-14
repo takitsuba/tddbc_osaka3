@@ -14,9 +14,8 @@ class StockControl:
         for name in self.prices.keys():
             print(f"{name}: {self.prices[name]}yen, {self.stocks[name]}hon")
 
-    def can_sell(self, amount):
-        coke = "Coke"
-        return self.prices[coke] <= amount and self.stocks[coke] > 0
+    def has_stock(self, juice):
+        return self.stocks[juice] > 0
 
     def take(self, name):
         self.stocks[name] -= 1
@@ -34,6 +33,9 @@ class VendingMachine:
     def is_valid(self, inserted):
         return inserted in valid_moneys
 
+    def has_enough_amount(self, juice):
+        return self.amount >= self.stock_control.prices[juice]
+
     def add_amount(self, inserted):
         self.amount += inserted
 
@@ -44,7 +46,8 @@ class VendingMachine:
         elif input_str == "stock":
             self.stock_control.print_juices()
         elif input_str == "buy":
-            if self.stock_control.can_sell(self.amount):
+            juice = "Coke"
+            if self.stock_control.has_stock(juice) and self.has_enough_amount(juice):
                 self.stock_control.take("Coke")
                 price = self.stock_control.prices["Coke"]
                 self.proceeds += price
