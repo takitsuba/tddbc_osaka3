@@ -4,7 +4,7 @@ class VendingMachine:
     total = 0
 
     def refund(self):
-        print(f"refund:{self.total}")
+        print(f"change: {self.total}")
         self.total = 0
 
     def is_valid(self, inserted):
@@ -20,7 +20,7 @@ class VendingMachine:
         if self.is_valid(inserted):
             self.total += inserted
         else:
-            print(f"invalid money:{inserted}")
+            print(f"change: {inserted}")
         print(f"total: {self.total}")
 
 
