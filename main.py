@@ -15,10 +15,10 @@ class StockControl:
 
     def can_sell(self, amount):
         coke = "Coke"
-        return self.prices[coke] <= amount and self.stock[coke] > 0
+        return self.prices[coke] <= amount and self.stocks[coke] > 0
 
     def take(self, name):
-        self.stock[name] -= 1
+        self.stocks[name] -= 1
 
 
 class VendingMachine:
