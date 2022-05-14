@@ -1,20 +1,24 @@
 valid_moneys = (10, 50, 100, 500, 1000)
 
 class StockControl:
-    juices = {}
+    prices = {}
+    stocks = {}
 
     def __init__(self):
-        self.juices["Coke"] = {"price": 120, "number": 5}
+        coke = "Coke"
+        self.prices[coke] = 120
+        self.stocks[coke] = 5
 
     def print_juices(self):
-        for name, detail in self.juices.items():
-            print(f"{name}: {detail['price']}yen, {detail['number']}hon")
+        for name in self.prices.keys():
+            print(f"{name}: {self.prices[name]}yen, {self.stocks[name]}hon")
 
     def can_sell(self, amount):
-        return self.juices["Coke"]["price"] <= amount and self.juices["Coke"]["number"] > 0
+        coke = "Coke"
+        return self.prices[coke] <= amount and self.stock[coke] > 0
 
     def take(self, name):
-        self.juices[name]["number"] -= 1
+        self.stock[name] -= 1
 
 
 class VendingMachine:
